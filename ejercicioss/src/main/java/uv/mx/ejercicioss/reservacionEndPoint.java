@@ -71,7 +71,7 @@ public class reservacionEndPoint {
     //MODIFICAR RESERVACION
     @PayloadRoot(localPart = "ModificarReservacionRequest",namespace = "https://uv.mx/ejercicioss")
     @ResponsePayload
-    public ModificarReservacionResponse modificarSaludo(@RequestPayload ModificarReservacionRequest peticion){
+    public ModificarReservacionResponse modificarReservacion(@RequestPayload ModificarReservacionRequest peticion){
         ModificarReservacionResponse respuesta = new ModificarReservacionResponse();
 
 
@@ -93,15 +93,9 @@ public class reservacionEndPoint {
     //ELIMINAR RESERVACION 
     @PayloadRoot(localPart = "BorrarReservacionRequest",namespace = "https://uv.mx/ejercicioss")
     @ResponsePayload
-    public BorrarReservacionResponse borrarSaludo (@RequestPayload BorrarReservacionRequest peticion){
+    public BorrarReservacionResponse borrarReservacion (@RequestPayload BorrarReservacionRequest peticion){
         BorrarReservacionResponse respuesta = new BorrarReservacionResponse();
         
-        // for (Saludo o : saludos){
-        //     if(o.getId() == peticion.getId()){
-        //         saludos.remove(o);
-        //         break;
-        //     }
-        // }
         ireservadores.deleteById(peticion.getId());
         respuesta.setRespuesta(true);
         return respuesta;
